@@ -1,0 +1,28 @@
+    	while(1)
+		{		
+			ButtonState = ButtonsPoll(0,0);
+			switch(ButtonState & ALL_BUTTONS)
+			{
+				case RIGHT_BUTTON:
+				{
+					if(Release)
+					{					
+						Release = 0x0;
+					}
+					break;
+				}
+				case LEFT_BUTTON:
+				{
+					if(Release)
+					{					
+						Release = 0x0;
+					}
+					break;
+				}
+				default:
+				{				
+					Release = 0xFF;
+				}
+			}
+			SysCtlDelay(SysCtlClockGet() / 1000 );
+		}
